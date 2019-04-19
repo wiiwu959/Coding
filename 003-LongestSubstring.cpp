@@ -4,7 +4,8 @@
 
 using namespace std;
 
-class Solution {								// 網路上說是sliding windows的方法
+// 網路上說叫做sliding windows的方法
+class Solution {
 public:
 	int lengthOfLongestSubstring(string s) {
 		map<char, int> all;
@@ -31,8 +32,8 @@ public:
 	}
 };
 
-class Solution2 {								// 暴力法，超~~~級慢到不行絕對不要用糟糕爆了
-public:
+// 暴力法，超~~~級慢到不行絕對不要用糟糕爆了
+class Solution2 {
 	int lengthOfLongestSubstring(string s) {
 		map<char, int> all;
 		map<char, int>::iterator iter;
