@@ -36,9 +36,9 @@ class Solution2 {
             map<int, int> indexMap;                     // 第一個放value，第二個放index
             map<int, int>::iterator iter;
 
-            for(int i=0; i<nums.size(); i++)
+            for(int i = 0; i < nums.size(); i++)
             {
-                iter = indexMap.find(target-nums[i]);
+                iter = indexMap.find(target - nums[i]);
                 if(iter != indexMap.end())              // 如果有找到，他就是我們要的答案了!
                 {
                     ans.push_back(iter->second);        // iter->second就是(target-nums[i])的index
