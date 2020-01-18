@@ -1,7 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
 struct ListNode {
     int val;
     ListNode *next;
@@ -26,8 +22,7 @@ public:
 			ans = ans->next;
 		}
 
-		if (carry != 0)
-		{
+		if (carry != 0){
 			ans->next = new ListNode(carry);
 		}
 		return ansHead->next;

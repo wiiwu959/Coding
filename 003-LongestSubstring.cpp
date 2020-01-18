@@ -1,37 +1,27 @@
-#include <iostream>
-#include <map>
-#include <string>
-
-using namespace std;
-
 // 網路上說叫做sliding windows的方法
 // 這樣的速度會有O(n)
 class Solution {
 public:
 	int lengthOfLongestSubstring(string s) {
 		bool all[256];
-		for (int i = 0; i < 256; i++)
-		{
+		for (int i = 0; i < 256; i++){
 			all[i] = false;
 		}
 		int max = 0, counter = 0, i = 0, j = 0;
-		while (i < s.size() && j < s.size())
-		{
-
-			if (all[s[j]] != false)				// 找到有重複，就從前面開始往後刪掉，直到沒有重複為止
-			{
+		while (i < s.size() && j < s.size()) {
+			// 找到有重複，就從前面開始往後刪掉，直到沒有重複為止
+			if (all[s[j]] != false) {
 				counter--;
 				all[s[i]] = false;
 				i++;
 			}
-			else								// 若是沒有重複，就繼續往下做
-			{
+			// 若是沒有重複，就繼續往下做
+			else {
 				counter++;
 				all[s[j]] = true;
 				j++;
 			}
 			max = counter > max ? counter : max;
-
 		}
 		return max;
 	}
@@ -47,23 +37,18 @@ public:
 	int lengthOfLongestSubstring(string s) {
 		map<char, int> all;
 		int max = 0, counter = 0, i = 0, j = 0;
-		while (i < s.size() && j < s.size())
-		{
-			
-			if (all.find(s[j]) != all.end())
-			{
+		while (i < s.size() && j < s.size()) {
+			if (all.find(s[j]) != all.end()) {
 				counter --;
 				all.erase(s[i]);
 				i++;
 			}
-			else
-			{
+			else {
 				counter++;
 				all[s[j]] = j;
 				j++;
 			}
 			max = counter > max ? counter : max;
-			
 		}
 		return max;
 	}
@@ -75,18 +60,13 @@ class Solution3 {
 		map<char, int> all;
 		map<char, int>::iterator iter;
 		int max = 0, counter = 0;
-		for (int i = 0; i < s.size(); i++)
-		{
-			for (int j = i; j < s.size(); j++)
-			{
-				if (all.end() == all.find(s[j]))
-				{
+		for (int i = 0; i < s.size(); i++) {
+			for (int j = i; j < s.size(); j++) {
+				if (all.end() == all.find(s[j])) {
 					counter++;
 				}
 				else { break; }
-
-				if (counter > max)
-				{
+				if (counter > max) {
 					max = counter;
 				}
 				all[s[j]] = j;
