@@ -3,7 +3,7 @@
 Backtracking 的重點就是遇到很多層的問題的時候，
 一層一層去解決它，問題進到 function 中就只要做這層的事情
 下一層的事情就讓下一次進的 function 處理
-然後設好一個停止的點，bacjtracking 大概就是這麼一回事
+然後設好一個停止的點，backtracking 大概就是這麼一回事
 */
 class Solution {
 public:
