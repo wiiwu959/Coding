@@ -1,5 +1,5 @@
-// ºô¸ô¤W»¡¥s°µsliding windowsªº¤èªk
-// ³o¼Ëªº³t«×·|¦³O(n)
+// ç¶²è·¯ä¸Šèªªå«åšsliding windowsçš„æ–¹æ³•
+// é€™æ¨£çš„é€Ÿåº¦æœƒæœ‰O(n)
 class Solution {
 public:
 	int lengthOfLongestSubstring(string s) {
@@ -9,13 +9,13 @@ public:
 		}
 		int max = 0, counter = 0, i = 0, j = 0;
 		while (i < s.size() && j < s.size()) {
-			// §ä¨ì¦³­«½Æ¡A´N±q«e­±¶}©l©¹«á§R±¼¡Aª½¨ì¨S¦³­«½Æ¬°¤î
+			// æ‰¾åˆ°æœ‰é‡è¤‡ï¼Œå°±å¾å‰é¢é–‹å§‹å¾€å¾Œåˆªæ‰ï¼Œç›´åˆ°æ²’æœ‰é‡è¤‡ç‚ºæ­¢
 			if (all[s[j]] != false) {
 				counter--;
 				all[s[i]] = false;
 				i++;
 			}
-			// ­Y¬O¨S¦³­«½Æ¡A´NÄ~Äò©¹¤U°µ
+			// è‹¥æ˜¯æ²’æœ‰é‡è¤‡ï¼Œå°±ç¹¼çºŒå¾€ä¸‹åš
 			else {
 				counter++;
 				all[s[j]] = true;
@@ -28,9 +28,9 @@ public:
 };
 
 
-// ¦pªG©M²Ä¤@­Ó°µªk¤@¼Ë¡A¦ı¬O¥Îmapªº¸Ü
-// ¦]¬°find¬O§Q¥Î¬õ¶Â¾ğºtºâªk¡A©Ò¥H¥Lªº³t«×¬Olog n
-// ©Ò¥H¤ñ¸ûºC!!
+// å¦‚æœå’Œç¬¬ä¸€å€‹åšæ³•ä¸€æ¨£ï¼Œä½†æ˜¯ç”¨mapçš„è©±
+// å› ç‚ºfindæ˜¯åˆ©ç”¨ç´…é»‘æ¨¹æ¼”ç®—æ³•ï¼Œæ‰€ä»¥ä»–çš„é€Ÿåº¦æ˜¯log n
+// æ‰€ä»¥æ¯”è¼ƒæ…¢!!
 // https://stackoverflow.com/questions/9961742/time-complexity-of-find-in-stdmap
 class Solution2 {
 public:
@@ -54,7 +54,7 @@ public:
 	}
 };
 
-// ¼É¤Oªk¡A¶W~~~¯ÅºC¨ì¤£¦æµ´¹ï¤£­n¥ÎÁV¿|Ãz¤F
+// æš´åŠ›æ³•ï¼Œè¶…~~~ç´šæ…¢åˆ°ä¸è¡Œçµ•å°ä¸è¦ç”¨ç³Ÿç³•çˆ†äº†
 class Solution3 {
 	int lengthOfLongestSubstring(string s) {
 		map<char, int> all;
