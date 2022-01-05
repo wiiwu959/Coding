@@ -1,8 +1,6 @@
 // 題目會給一個 array，要問你能不能分成等量的兩半
 // ex. [1,5,11,5] 就可以分成 [1,5,5] 和 [11]
 
-
-
 class Solution {
 public:
     bool canPartition(vector<int>& nums) {

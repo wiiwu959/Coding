@@ -1,4 +1,4 @@
-// ¼É¤Oªk¡A§â¨â­Ó²Õ°_¨Ósort«áª½±µ§ä
+// æš´åŠ›æ³•ï¼ŒæŠŠå…©å€‹çµ„èµ·ä¾† sort å¾Œç›´æ¥æ‰¾
 class Solution1 {
 public:
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
@@ -15,10 +15,10 @@ public:
 	}
 };
 
-// «á¨Ó¤ñ¸û¦³®É¶¡«á¤S¼g¤F³o­Ó
-// ¨â¨â¬Û¤ñµM«áºCºC«e¶i§ä¨ì¤¤¦ì¼Æ
-// ªáªº®É¶¡´î¤Ö«Ü¦h¡A®É¶¡½ÆÂø«×À³¸Ó¬OO((m+n)/2)
-// Å¥»¡¯à¨ìO(log(min(m+n)))¦ıÁÙ¨S·Q¨ì
+// å¾Œä¾†æ¯”è¼ƒæœ‰æ™‚é–“å¾Œåˆå¯«äº†é€™å€‹
+// å…©å…©ç›¸æ¯”ç„¶å¾Œæ…¢æ…¢å‰é€²æ‰¾åˆ°ä¸­ä½æ•¸
+// èŠ±çš„æ™‚é–“æ¸›å°‘å¾ˆå¤šï¼Œæ™‚é–“è¤‡é›œåº¦æ‡‰è©²æ˜¯ O((m+n)/2)
+// è½èªªèƒ½åˆ° O(log(min(m+n))) ä½†é‚„æ²’æƒ³åˆ°
 class Solution {
 public:	
 	int findNext(vector<int>& nums1, vector<int>& nums2, int* cur1, int* cur2) {

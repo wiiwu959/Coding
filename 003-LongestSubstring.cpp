@@ -1,5 +1,5 @@
-// 網路上說叫做sliding windows的方法
-// 這樣的速度會有O(n)
+// 網路上說叫做 sliding windows 的方法
+// 這樣的速度會有 O(n)
 class Solution {
 public:
 	int lengthOfLongestSubstring(string s) {
@@ -28,8 +28,8 @@ public:
 };
 
 
-// 如果和第一個做法一樣，但是用map的話
-// 因為find是利用紅黑樹演算法，所以他的速度是log n
+// 如果和第一個做法一樣，但是用 map 的話
+// 因為 find 是利用紅黑樹演算法，所以他的速度是 log n
 // 所以比較慢!!
 // https://stackoverflow.com/questions/9961742/time-complexity-of-find-in-stdmap
 class Solution2 {

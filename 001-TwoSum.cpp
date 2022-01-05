@@ -1,4 +1,4 @@
-// 我一開始用的解法，用暴力法解的-->O(n^2)
+// 我一開始用的解法，用暴力法解的 --> O(n^2)
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -16,7 +16,7 @@ public:
     }
 };
 
-// 利用map來解，只有O(n)而已
+// 利用 map 來解，只有 O(n) 而已
 class Solution2 {
     public:
         vector<int> twoSum(vector<int>& nums, int target) {

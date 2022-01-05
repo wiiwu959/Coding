@@ -1,7 +1,8 @@
-// 練習用dynamic programming
-// 如果頭尾相同，中間的東西又是palindromic的話，這個字串就也是
+// 練習用 dynamic programming
+// 如果頭尾相同，中間的東西又是 palindromic 的話，這個字串就也是
 // 所以可以利用這點把之間的結果存起來
-// 若是位置i到j的這段字串是回文，那isPalin[i][j]就=true
+// 若是位置 i 到 j 的這段字串是回文，那 isPalin[i][j] 就 = true
+// 而因為要用到 i + 1 檢查，所以要從 buttom up
 class Solution {
 public:
     string longestPalindrome(string s) {

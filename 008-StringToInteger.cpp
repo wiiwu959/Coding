@@ -1,7 +1,7 @@
-// 其實這題很爛，只是if-else練習還有一堆奇怪的testcase
+// 其實這題很爛，只是 if-else 練習還有一堆奇怪的 testcase
 // 有看到效率比較好的寫法但是也覺得沒什麼意義就沒繼續改了
-// 不過還是有收穫，就是下面sulution2的寫法，超神奇
-// 他只會讀進數字的部分，而且奇怪的case也都會過，神奇!
+// 不過還是有收穫，就是下面 sulution2 的寫法，超神奇
+// 他只會讀進數字的部分，而且奇怪的 case 也都會過，神奇!
 class Solution {
 public:
 	int myAtoi(string str) {

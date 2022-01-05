@@ -1,6 +1,6 @@
-// 用vector<string>來存每一行的內容
+// 用 vector<string> 來存每一行的內容
 // 最後併在一起印出來得到答案
-// 時間複雜O(n)
+// 時間複雜 O(n)
 
 class Solution {
 public:
