@@ -1,6 +1,8 @@
 // 把重複的項目從 sorted linked list 中拿出來
 
 // 就是練習 linkedlist ... 好難
+// 用 double pointer 會讓 code 明晰一點，不過會需要想一下
+// 建議練習的時候要再畫圖思考一下
 
 /**
  * Definition for singly-linked list.
@@ -31,4 +33,23 @@ public:
 
         return head;
     }
+};
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode** now = &head;
+        
+        while(*now != nullptr) {
+            if((*now)->next != nullptr && ((*now)->next->val == (*now)->val)) {
+                (*now) = (*now)->next;
+            }
+            else {
+                now = &((*now)->next);
+            }
+        }
+        
+        return head;
+    }
+
 };
