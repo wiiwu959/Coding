@@ -15,7 +15,7 @@ bool isVowel(char target) {
 
 string GetRuler(const string& kingdom) {
     // TODO: implement this method to determine the ruler name, given the kingdom.
-    char endchar = kingdom[-1];
+    char endchar = kingdom[kingdom.size() - 1];
     string ruler = "";
     if(endchar == 'Y' || endchar == 'y') {
         ruler = "nobody";
