@@ -1,5 +1,6 @@
 // 把 sorted array 建成高度平衡的 tree
 // 用 backtracking 去依序處理每個 node 和他的節點
+// 因為每個 node 都是他自己那個 subtree 的 root
 
 /**
  * Definition for a binary tree node.
