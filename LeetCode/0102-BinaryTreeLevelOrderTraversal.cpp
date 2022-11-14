@@ -2,7 +2,6 @@
 // Input: root = [3,9,20,null,null,15,7]
 // Output: [[3],[9,20],[15,7]]
 
-// 用 backtracking
 
 /**
  * Definition for a binary tree node.
@@ -16,6 +15,7 @@
  * };
  */
 
+// 用 backtracking
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
@@ -43,5 +43,42 @@ public:
         
         return;
 
+    }
+};
+
+// iterative
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        if (!root) {return {};}
+        
+        int next_num = 0;
+        queue<TreeNode*> to_visit;
+        vector<vector<int>> ans;
+        
+        to_visit.push(root);
+        int num = 1;
+        while (!to_visit.empty()) {
+            vector<int> temp;
+            for (int i = 0; i < num; i++) {
+                TreeNode* cur = to_visit.front();
+                to_visit.pop();
+                temp.push_back(cur->val);
+                
+                if (cur->left) {
+                    to_visit.push(cur->left);
+                    next_num++;
+                }
+                
+                if (cur->right) {
+                    to_visit.push(cur->right);
+                    next_num++;
+                }
+            }
+            ans.push_back(temp);
+            num = next_num;
+            next_num = 0;
+        }
+        return ans;
     }
 };

@@ -9,6 +9,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// 用 iterative 的方式去訪問 inorder 順序的 node
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
@@ -27,6 +29,34 @@ public:
                 max = now->val;
                 current = now->right;
             }
+        }
+        return true;
+    }
+};
+
+// 用 recursive 先造出 inorder 順序
+// 直接用這個順序去檢查
+class Solution {
+public:
+    void inorder(TreeNode* root, stack<int>& st) {
+        if (!root) { return; }
+        inorder(root->right, st);
+        st.push(root->val);
+        inorder(root->left, st);
+    }
+    
+    bool isValidBST(TreeNode* root) {
+        stack<int> st;
+        inorder(root, st);
+        
+        int cur = st.top();
+        st.pop();
+        while (!st.empty()) {
+            if (st.top() <= cur) {
+                return false;
+            }
+            cur = st.top();
+            st.pop();
         }
         return true;
     }
