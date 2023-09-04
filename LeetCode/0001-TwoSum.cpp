@@ -41,3 +41,19 @@ class Solution2 {
             return ans;
         }
 };
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> num_index;
+        for (int i = 0; i < nums.size(); i++) {
+            int lookup = target - nums[i];
+            if (num_index.find(lookup) != num_index.end()) {
+                return {num_index[lookup], i};
+            } else {
+                num_index[nums[i]] = i;
+            }
+        }
+        return {};
+    }
+};
