@@ -1,19 +1,14 @@
+// use map
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-        unordered_map<int, int> frq;
-        int line = floor(nums.size() / 3);
-        set<int> accept;
-        for (int& num: nums) {
-            frq[num]++;
-            if (frq[num] > line) {
-                accept.insert(num);
-            }
-        }
-
+        int line = nums.size() / 3 + 1;
         vector<int> ans;
-        ans.assign(accept.begin(), accept.end());
-
+        unordered_map<int, int> count;
+        for (int& num: nums) {
+            count[num]++;
+            if (count[num] == line) ans.push_back(num);
+        }
         return ans;
     }
 };
