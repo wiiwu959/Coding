@@ -7,6 +7,58 @@ import (
 	"advent/helper"
 )
 
+type Pair struct {
+    x, y interface{}
+}
+starMap := map[Pair] int
+
+func handleNum(matrix []string, head int, tail int, row int) int {
+	var isPart bool = false
+
+	if (row - 1 >= 0) {
+		for i := head - 1; i <= tail + 1; i++ {
+			if (i >= 0 && i < len(matrix[0])) {
+				if (matrix[row - 1][i] != '.') {
+					isPart = true
+				}
+			}
+		}
+	}
+
+	if (head - 1 >= 0) {
+		if (matrix[row][head - 1] != '.') {
+			isPart = true
+		}
+	}
+
+	if (tail + 1 < len(matrix[0])) {
+		if (matrix[row][tail + 1] != '.') {
+			isPart = true
+		}
+	}
+
+	if (row + 1 < len(matrix)) {
+		for i := head - 1; i <= tail + 1; i++ {
+			if (i >= 0 && i < len(matrix[0])) {
+				if (matrix[row + 1][i] != '.') {
+					isPart = true
+				}
+			}
+		}
+	}
+
+	if (isPart) {
+		var numString string = ""
+		for i := head; i <= tail; i++ {
+			numString += string(matrix[row][i])
+		}
+		valPart, _ := strconv.Atoi(numString)
+		return valPart
+	}
+
+	return 0
+}
+
 func checkPart(matrix []string) int {
 	head := -1
 	tail := -1
@@ -19,56 +71,15 @@ func checkPart(matrix []string) int {
 					tail = column
 				} else {
 					tail = column
+					if (column == len(eachRow) - 1) {
+						sum += handleNum(matrix, head, tail, row)
+						head = -1
+						tail = -1
+					}
 				}
 			} else {
 				if (head != -1) {
-					// find if the number is part
-					var isPart bool = false
-					
-					if (row - 1 >= 0) {
-						for i := head - 1; i <= tail + 1; i++ {
-							if (i >= 0 && i < len(matrix[0])) {
-								if (matrix[row - 1][i] != '.') {
-									isPart = true
-									
-								}
-							}
-						}
-					}
-
-					if (head - 1 >= 0) {
-						if (matrix[row][head - 1] != '.') {
-							isPart = true
-						}
-					}
-
-					if (tail + 1 < len(matrix[0])) {
-						if (matrix[row][tail + 1] != '.') {
-							isPart = true
-						}
-					}
-
-					if (row + 1 < len(matrix)) {
-						for i := head - 1; i <= tail + 1; i++ {
-							if (i >= 0 && i < len(matrix[0])) {
-								if (matrix[row + 1][i] != '.') {
-									isPart = true
-									
-								}
-							}
-						}
-					}
-
-					if (isPart) {
-						var numString string = ""
-						for i := head; i <= tail; i++ {
-							numString += string(eachRow[i])
-						}
-						valPart, _ := strconv.Atoi(numString)
-						sum += valPart
-						fmt.Println(numString)
-					}
-
+					sum += handleNum(matrix, head, tail, row)
 					head = -1
 					tail = -1
 				}
